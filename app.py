@@ -1,3 +1,25 @@
+from flask import Flask, render_template, request, redirect, url_for,Response
+import os
+
+app = Flask(__name__)
+
+TEMPLATES = [
+    'index', 'services', 'gallery', 'portfolio', 'login', 'signup', 'contact',
+    'faq', 'testimonial', 'pricing', 'blog', 'about', 'team', 'terms', 'privacy'
+]
+
+@app.route('/')
+def index():
+    return render_template('index.html')
+
+@app.route('/generate', methods=['POST'])
+def generate():
+    template_name = request.form.get('template_name')
+    if template_name in TEMPLATES:
+        create_html_file(template_name)
+        return Response("<h1>Template Generated And Saved!</h1>")
+    return "Template not found!", 404
+
 def create_html_file(template_name):
     html_content = {
         'index': '''<!DOCTYPE html>
@@ -617,4 +639,4 @@ def main():
         create_html_file(user_input)
 
 if __name__ == "__main__":
-    main()
+    app.run(debug=True)

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template Generator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="mb-4">Template Generator</h1>
+        <form action="{{ url_for('generate') }}" method="post">
+            <div class="mb-3">
+                <label for="template_name" class="form-label">Select a Template</label>
+                <select id="template_name" name="template_name" class="form-select">
+                    <option value="" disabled selected>Select a template</option>
+                    <option value="index">Index</option>
+                    <option value="services">Services</option>
+                    <option value="gallery">Gallery</option>
+                    <option value="portfolio">Portfolio</option>
+                    <option value="login">Login</option>
+                    <option value="signup">Sign Up</option>
+                    <option value="contact">Contact</option>
+                    <option value="faq">FAQ</option>
+                    <option value="testimonial">Testimonial</option>
+                    <option value="pricing">Pricing</option>
+                    <option value="blog">Blog</option>
+                    <option value="about">About Us</option>
+                    <option value="team">Our Team</option>
+                    <option value="terms">Terms of Service</option>
+                    <option value="privacy">Privacy Policy</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Generate</button>
+        </form>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
